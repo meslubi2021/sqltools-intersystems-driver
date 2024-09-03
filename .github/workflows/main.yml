@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4.1.7
       with:
         name: meta
         path: .
@@ -89,7 +89,7 @@ jobs:
         set -x
         echo ::set-output name=version::`cat .version`
         echo ::set-output name=name::`cat .name`
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4.1.7
       with:
         name: ${{ steps.set-version.outputs.name }}.vsix
     - name: Create Release
@@ -125,7 +125,7 @@ jobs:
       with:
         ref: master
         token: ${{ secrets.TOKEN }}
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4.1.7
       with:
         name: meta
         path: .
